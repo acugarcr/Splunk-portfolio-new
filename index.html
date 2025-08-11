@@ -13,7 +13,6 @@
       font-family: 'Splunk Data Sans', system-ui, sans-serif;
       text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
     }
-
     body::before,
     body::after {
       content: "";
@@ -23,27 +22,16 @@
       height: 100%;
       z-index: 1;
     }
+    body::before { left: 0; background: linear-gradient(to bottom, #f7941d, #f72ea7, #7e57c2); }
+    body::after  { right: 0; background: linear-gradient(to top,    #f7941d, #f72ea7, #7e57c2); }
 
-    body::before {
-      left: 0;
-      background: linear-gradient(to bottom, #f7941d, #f72ea7, #7e57c2);
-    }
-
-    body::after {
-      right: 0;
-      background: linear-gradient(to top, #f7941d, #f72ea7, #7e57c2);
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
+    a { text-decoration: none; color: inherit; }
 
     .splunk-portfolio {
       text-align: center;
       padding: 40px 20px;
       color: white;
-      max-width: 1400px;
+      max-width: calc(600px + 20px + 820px);
       margin: auto;
       position: relative;
       z-index: 2;
@@ -59,43 +47,31 @@
     .side-by-side-sections {
       display: flex;
       justify-content: center;
-      gap: 40px;
+      gap: 20px;
+      margin-bottom: 15px;
     }
 
-    .section {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
+    .section { display: flex; flex-direction: column; align-items: center; }
+    .block-title, .title-purple { margin-bottom: 20px; }
+    .ai-grid, .ml-grid { margin-bottom: 20px; }
 
     .block-title {
       font-size: 52px;
       font-weight: 600;
       padding: 20px;
       border-radius: 20px;
-      margin-bottom: 20px;
-      border: 4px solid;
+      border: 3px solid rgba(255, 255, 255, 0.2);
       background: rgba(255, 255, 255, 0.05);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
-      border: 3px solid rgba(255, 255, 255, 0.2);
       text-shadow: none;
     }
-
-    .title-orange {
-      color: #f7941d;
-      border-color: #f7941d;
-    }
-
-    .title-pink {
-      color: #f72ea7;
-      border-color: #f72ea7;
-    }
+    .title-orange { color: #f7941d; border-color: #f7941d; }
+    .title-pink   { color: #f72ea7; border-color: #f72ea7; }
 
     .title-purple {
-      font-size: 27px; /* Increased by 2px */
+      font-size: 27px;
       font-weight: 600;
-      margin-bottom: 20px;
       padding: 24px;
       border-radius: 20px;
       color: #7e57c2;
@@ -106,21 +82,8 @@
       text-shadow: none;
     }
 
-    .ai-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 200px);
-      font-size: 21px;
-      gap: 20px;
-      justify-content: center;
-    }
-
-    .ml-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 200px);
-      font-size: 21px;
-      gap: 20px;
-      justify-content: center;
-    }
+    .ai-grid { display: grid; grid-template-columns: repeat(3, 200px); font-size: 21px; gap: 20px; justify-content: center; }
+    .ml-grid { display: grid; grid-template-columns: repeat(4, 200px); font-size: 21px; gap: 20px; justify-content: center; }
 
     .block {
       background: rgba(255, 255, 255, 0.05);
@@ -128,76 +91,42 @@
       -webkit-backdrop-filter: blur(10px);
       border: 3px solid #f7941d;
       box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
-      height: 100px;
-      width: 180px;
-      padding-left: 10px;
-      padding-right: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 20px;
-      font-weight: 650;
-      color: #f7941d;
-      cursor: pointer;
-      transition: all 0.2s ease-in-out;
-      text-shadow: none;
-      text-align: center;
+      height: 100px; width: 180px; padding: 0 10px;
+      display: flex; align-items: center; justify-content: center;
+      border-radius: 20px; font-weight: 650; color: #f7941d;
+      cursor: pointer; transition: all 0.2s ease-in-out; text-shadow: none; text-align: center;
     }
+    .block.pink { border: 3px solid #f72ea7; color: #f72ea7; }
 
-    .block.pink {
-      border: 3px solid #f72ea7;
-      color: #f72ea7;
-    }
-
-    .block:hover,
-    .block-title:hover,
-    .footer-block:hover,
-    .title-purple:hover {
-      filter: brightness(1.2);
-      transform: translateY(-2px);
-      transition: all 0.2s ease-in-out;
+    .block:hover, .block-title:hover, .footer-block:hover, .title-purple:hover {
+      filter: brightness(1.2); transform: translateY(-2px); transition: all 0.2s ease-in-out;
       box-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
     }
-
-    .block:active {
-      transform: translateY(1px);
-      filter: brightness(1.1);
-    }
+    .block:active { transform: translateY(1px); filter: brightness(1.1); }
 
     .footer-block {
-      width: 100%;
-      max-width: 1500px;
+      width: calc(600px + 20px + 820px + 30px + 10px); /* +5px each side */
       background: rgba(255, 255, 255, 0.05);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
       border: 3px solid #f7941d;
       box-shadow: none;
-      padding: 24px;
-      font-size: 25px;
-      font-weight: 600;
-      border-radius: 20px;
-      margin-top: 40px;
-      margin-left: -20px;
-      margin-right: auto;
-      display: block;
-      text-shadow: none;
-      color: #f7941d;
+      padding: 24px; font-size: 25px; font-weight: 600; border-radius: 20px;
+      margin-top: -10px; display: block; text-shadow: none; color: #f7941d;
+      margin-left: -45px; /* Shift left 5px to balance */
     }
   </style>
   <script>
     function handleNavClick(label) {
       const statusBox = document.getElementById('status-box');
-      if (statusBox) {
-        statusBox.innerText = 'You clicked: ' + label;
-      }
+      if (statusBox) statusBox.innerText = 'You clicked: ' + label;
     }
   </script>
 </head>
 <body>
   <div class="splunk-portfolio">
     <div class="main-title">
-      <img src="https://www.splunk.com/content/dam/splunk2/en_us/images/events/mediakit/splunk-corp-logo-w-rgb.png" 
-           alt="Splunk Logo" style="height: 120px; vertical-align: middle; margin-right: 20px;">
+      <img src="https://www.splunk.com/content/dam/splunk2/en_us/images/events/mediakit/splunk-corp-logo-w-rgb.png" alt="Splunk Logo" style="height: 120px; vertical-align: middle; margin-right: 20px;">
       Portfolio
     </div>
 
@@ -235,6 +164,5 @@
 
     <div id="status-box" style="margin-top: 30px; font-size: 20px; color: #fff;"></div>
   </div>
-
 </body>
 </html>
